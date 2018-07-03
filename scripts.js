@@ -12,7 +12,7 @@ let filters = {
 //  Contacting the SpaceX API
 //
 //
-//<iframe id="video-background" src="https://www.youtube.com/embed/BrCKvKXvN2c?list=RDgfwMBzGA_Jo" frameborder="0" allowfullscreen></iframe>
+
 
 
 let getData = function() {
@@ -124,7 +124,7 @@ let writeToDOM = function (data) {
         let contentDiv = document.createElement('div')
         launchDiv.appendChild(contentDiv)
         contentDiv.setAttribute('class', 'content')
-        let date = new Date(launch.launch_date_unix * 1000)
+        let date = new Date(launch.launch_date_utc)
         let telemetryLink = null
             if (launch.telemetry.flight_club == null) {
                 telemetryLink = 'No telemetry provided'

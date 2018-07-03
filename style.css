@@ -82,7 +82,7 @@ body {
 }
 
 .launch:hover img {
-    width: 175px;
+    width: 200px;
     transition: all .15s ease-in-out;
 }
 
@@ -143,10 +143,10 @@ body {
 }
 
 .launch img {
-    z-index: 2;
     margin: auto;
-    width: 125px;
+    width: 175px;
     grid-column: 2/3;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,1));
     transition: all .15s ease-in-out;
 }
 
