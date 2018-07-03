@@ -1,3 +1,2 @@
 # SpaceXDatabase
-
-This front end interface was created by the info taken from the [open source SpaceX REST API](https://github.com/r-spacex/SpaceX-API)
+This project was created for my portfolio. A mobile friendly front end interface utilizing the [open source SpaceX REST API](https://github.com/r-spacex/SpaceX-API)
