@@ -82,7 +82,7 @@ body {
 }
 
 .launch:hover img {
-    width: 200px;
+    width: 175px;
     transition: all .15s ease-in-out;
 }
 
@@ -144,7 +144,7 @@ body {
 
 .launch img {
     margin: auto;
-    width: 175px;
+    width: 150px;
     grid-column: 2/3;
     filter: drop-shadow(0 0 15px rgba(0,0,0,1));
     transition: all .15s ease-in-out;
