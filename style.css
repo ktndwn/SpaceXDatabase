@@ -43,7 +43,7 @@ body {
 
 #sort {
     margin: 15px;
-    max-width: 300px;
+    width: 300px;
 }
 
 #filter-bar label {
@@ -54,7 +54,7 @@ body {
 
 #search {
     margin: 15px;
-    max-width: 300px;
+    width: 300px;
 }
 
 #data-display {
