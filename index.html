@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Jura:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>SpaceX Launches</title>
+</head>
+<body>
+
+    <div id="header">
+        <video src="assets/iss.mp4" muted autoplay loop id="header-video"></video>
+        <img src="assets/spacex.png" alt="logo">
+    </div>
+    <div id="filter-bar">
+        <select name="launches" id="sort">
+            <option value="descending">Sort by descending</option>
+            <option value="ascending">Sort by ascending</option>
+        </select>
+        <label>
+            <input type="checkbox" id="checkbox"> Hide upcoming launches
+        </label>
+        <input type="text" placeholder="Search by mission" id="search">
+    </div>
+
+
+    <div id="data-display">
+        
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
