@@ -15,13 +15,13 @@ let filters = {
 
 
 
-let getData = function() {
-    fetch('https://api.spacexdata.com/v2/launches/all', {}).then(function(response) {
+let getData = () => {
+    fetch('https://api.spacexdata.com/v2/launches/all', {}).then((response) => {
         if (response.status !== 200) {
             console.log(`Error Code: ${response.status}`)
         } else {
             console.log('Success')
-            response.json().then(function(fetch) {
+            response.json().then((fetch) => {
                 data = fetch            
                 filterData(data, filters)
             })
@@ -41,28 +41,20 @@ getData()
 
 
 
-let filterData = function (data, filters) {
+let filterData = (data, filters) => {
     if (filters.sorting == 'descending') {
-        data.sort(function(a,b) {
-            return b.flight_number - a.flight_number
-        }) 
+        data.sort((a,b) => b.flight_number - a.flight_number) 
     } else if (filters.sorting == 'ascending') {
-        data.sort(function(a,b) {
-            return a.flight_number - b.flight_number
-        })
+        data.sort((a,b) => a.flight_number - b.flight_number)
     }
 
 
     if (filters.hideUpcoming == true) {
-        data = data.filter(function(launch) {
-            return launch.launch_success !== null
-        })
+        data = data.filter((launch) => launch.launch_success !== null)
         
     }
 
-    data = data.filter(function(launch) {
-        return launch.mission_name.toLowerCase().includes(filters.search.toLowerCase()) 
-    })
+    data = data.filter((launch) => launch.mission_name.toLowerCase().includes(filters.search.toLowerCase()))
 
     writeToDOM(data)
 }
@@ -79,8 +71,8 @@ let filterData = function (data, filters) {
 
 
 
-let writeToDOM = function (data) {
-    data.forEach(function (launch) {
+let writeToDOM = (data) => {
+    data.forEach((launch) => {
         let launchDiv = document.createElement('div')
         launchDiv.setAttribute('class', 'launch')
         document.querySelector('#data-display').appendChild(launchDiv)
@@ -124,7 +116,7 @@ let writeToDOM = function (data) {
         let contentDiv = document.createElement('div')
         launchDiv.appendChild(contentDiv)
         contentDiv.setAttribute('class', 'content')
-        let date = new Date(launch.launch_date_utc)
+        let date = new Date(launch.launch_date_utc).toString().slice(4, 15)
         let telemetryLink = null
             if (launch.telemetry.flight_club == null) {
                 telemetryLink = 'No telemetry provided'
@@ -195,7 +187,7 @@ let writeToDOM = function (data) {
 
 
 
-document.querySelector('#sort').addEventListener('change', function (e) {
+document.querySelector('#sort').addEventListener('change', (e) => {
     if (e.target.value == 'descending') {
         filters.sorting = 'descending'
     } else if (e.target.value == 'ascending') {
@@ -206,7 +198,7 @@ document.querySelector('#sort').addEventListener('change', function (e) {
 })
 
 
-document.querySelector('#checkbox').addEventListener('change', function (e){
+document.querySelector('#checkbox').addEventListener('change', (e) =>{
     if (e.target.checked) {
         filters.hideUpcoming = true
     } else {
@@ -217,7 +209,7 @@ document.querySelector('#checkbox').addEventListener('change', function (e){
 })
 
 
-document.querySelector('#search').addEventListener('input', function (e) {
+document.querySelector('#search').addEventListener('input', (e) => {
     filters.search = e.target.value
     document.querySelector('#data-display').innerHTML = ''
     filterData(data, filters)
