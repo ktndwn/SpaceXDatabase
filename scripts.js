@@ -117,6 +117,7 @@ let writeToDOM = (data) => {
         launchDiv.appendChild(contentDiv)
         contentDiv.setAttribute('class', 'content')
         let date = new Date(launch.launch_date_utc).toString().slice(4, 15)
+        let time = new Date(launch.launch_date_utc).toString().slice(15, 21)
         let telemetryLink = null
             if (launch.telemetry.flight_club == null) {
                 telemetryLink = 'No telemetry provided'
@@ -130,7 +131,7 @@ let writeToDOM = (data) => {
                 youtubeLink = `<a href=${launch.links.video_link} target="_blank">Link</a>`
             }
         contentDiv.innerHTML = 
-        `<span class="title">Launch Date:</span><br>${date}<br>
+        `<span class="title">Launch Date:</span><br>${date},${time}<br>
         <span class="title">Rocket:</span><br>${launch.rocket.rocket_name} ${launch.rocket.rocket_type}<br>
         <span class="title">Video:</span><br>${youtubeLink}<br>
         <span class="title">Telemetry:</span><br>${telemetryLink}<br>
